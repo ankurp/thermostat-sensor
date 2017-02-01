@@ -1,7 +1,8 @@
 all: install
 
 install: adafruitlib
-	sed 's|'boot.sh'|'$(pwd)/boot.sh'|' rc.local | sudo tee /etc/rc.local 
+	sed 's|'boot.sh'|'$(pwd)/boot.sh'|' rc.local | sudo tee /etc/rc.local
+	sed -i 's|'./report.py'|'$(pwd)/report.py'|' boot.sh
 	sudo reboot
 
 deps:
