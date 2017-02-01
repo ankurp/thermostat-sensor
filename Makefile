@@ -1,14 +1,16 @@
 all: install
 
 install: adafruitlib
-	sudo pwd=$(pwd) sed 's|'boot.sh'|'$pwd/boot.sh'|' rc.local > /etc/rc.local
+	sed 's|'boot.sh'|'$(pwd)/boot.sh'|' rc.local | sudo tee /etc/rc.local 
 	sudo reboot
 
 deps:
 	sudo apt-get update
 	sudo apt-get install build-essential python-dev
 
-adafruitlib: deps
+adafruitlib: clean deps
 	git clone https://github.com/adafruit/Adafruit_Python_DHT.git
-	cd Adafruit_Python_DHT
-	sudo python setup.py install
+	cd Adafruit_Python_DHT && sudo python setup.py install
+
+clean:
+	sudo rm -rf Adafruit_Python_DHT
