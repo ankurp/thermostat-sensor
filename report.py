@@ -16,5 +16,8 @@ while True:
       "sensor_id": mac
     }
   }
-  response = requests.post('http://thermostat.patellabs.com/readings', data=json.dumps(data), headers=headers)
+  try:
+    response = requests.post('http://thermostat.encoredevlabs.com/readings', data=json.dumps(data), headers=headers)
+  except requests.exceptions.RequestException as e:
+    print("Error: {}".format(e))
   time.sleep(15)
