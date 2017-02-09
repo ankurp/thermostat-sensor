@@ -1,9 +1,7 @@
 all: install
 
 install: clean deps adafruitlib squid
-	sed 's|'boot.sh'|'$(pwd)/boot.sh'|' rc.local | sudo tee /etc/rc.local
-	sed -i 's|'./report.py'|'$(pwd)/report.py'|' boot.sh
-	sed -i 's|'./alert.py'|'$(pwd)/alert.py'|' boot.sh
+	sudo cp rc.local /etc/rc.local
 
 deps:
 	sudo apt-get update
