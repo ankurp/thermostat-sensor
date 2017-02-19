@@ -31,4 +31,4 @@ Setup crontab to reboot every few hours incase there are issues in reporting or 
 
 1. `sudo -i`
 2. `crontab -e`
-3. Add the following line `0 0,3,6,18,21 * * * reboot`
+3. Add the following line `0 0,3,6,18,21 * * * /sbin/shutdown -r now`
