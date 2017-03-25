@@ -1,5 +1,9 @@
 # thermostat-sensor
 
+![Raspberry Pi 3](https://raw.githubusercontent.com/ankurp/thermostat-sensor/master/assets/splash.png)
+
+![Raspberry Pi 3 with Temperature Sensor and Button](https://raw.githubusercontent.com/ankurp/thermostat-sensor/master/assets/screenshot.jpeg)
+
 # Install Instructions
 
 1. `git clone https://github.com/ankurp/thermostat-sensor.git`
