@@ -28,11 +28,11 @@ tunnels:
     addr: 22
 ```
 
-To run ngrok in background just run the following line `./ngrok start ssh > /dev/null &`. You can add this to the rc.local file to start `ngrok` on reboot.
+To run ngrok in background just run the following line `/path/to/ngrok start ssh --config=/home/pi/.ngrok2/ngrok.yml > /dev/null &`. You can add this to the rc.local file to start `ngrok` on reboot.
 
 ## Scheduled Reboot
 Setup crontab to reboot every few hours incase there are issues in reporting or being able to connect remotely using ssh via ngrok.
 
 1. `sudo -i`
 2. `crontab -e`
-3. Add the following line `0 0,3,6,18,21 * * * /sbin/shutdown -r now`
+3. Add the following line `0 * * * * /sbin/shutdown -r now`
