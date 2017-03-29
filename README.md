@@ -27,9 +27,10 @@ You will need the following items
 
 ## Software Install Instructions
 
+1. `cd /home/pi`
 1. `git clone https://github.com/ankurp/thermostat-sensor.git`
-2. `cd thermostat-sensor`
-3. `make`
+1. `cd thermostat-sensor`
+1. `make`
 
 ## Configure where to send Temperature Data 
 
