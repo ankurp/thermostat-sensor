@@ -1,6 +1,6 @@
 # thermostat-sensor
 
-This repository only contains code and instructions on how to setup the Raspberry Pi device to report temperature/humidity data along with manual alerts to the server. The server code where data is received and notifications are sent out can be found on [thermostat repo](https://github.com/ankurp/thermostat)
+This repository only contains code and instructions on how to setup the Raspberry Pi device to report temperature/humidity data along with manual alerts to the server. The server code where data is received and saved, notifications are sent, and the entire system configured via the admin portal, can be found on [thermostat repo](https://github.com/ankurp/thermostat)
 
 ![Raspberry Pi 3](https://raw.githubusercontent.com/ankurp/thermostat-sensor/master/assets/splash.png)
 
