@@ -18,8 +18,8 @@ You will need the following items
 
 1. Install [Raspbian Image](https://www.raspberrypi.org/downloads/raspbian/) (Operating System to run on Raspberry Pi) from official Raspberry Pi website onto the Micro SD Card. You can find the installation instructions on how to install the Raspbian OS onto the Micro SD Card [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
 2. Once OS is installed insert the MicroSD Card in the Raspberry Pi
-3. Connect the Temperature/Humidity Sensor to the Raspberry Pi by Connecting the Positive (+) end via the jumper cable to the 3V Pin, Connecting the Negative (-) end via the jumper cable to the Ground (GND) Pin and Connecting the Data end via the jumper cable to the GPIO Pin 4 on the Raspberry Pi.
-4. Connect the Push Button to the Raspberry Pi by connecting any one of the jumper cables to GPIO Pin 25 and the other to Ground (GND)
+3. Connect the Temperature/Humidity Sensor to the Raspberry Pi by Connecting the `Positive (+) end` via the jumper cable to the `3V Pin`, Connecting the `Negative (-) end` via the jumper cable to the `Ground (GND) Pin` and Connecting the `Data end` via the jumper cable to the `GPIO Pin 4` on the Raspberry Pi.
+4. Connect the Push Button to the Raspberry Pi by connecting any one of the jumper cables to `GPIO Pin 25` and the other to `Ground (GND)`
 5. Power up the Raspberry Pi and login via SSH or connect it to a monitor/keyboard/mouse and open the terminal and follow the software installation instructions below
 
 ![Raspberry Pi 3 with Temperature Sensor and Button](https://raw.githubusercontent.com/ankurp/thermostat-sensor/master/assets/screenshot.jpeg)
