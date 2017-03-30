@@ -1,6 +1,6 @@
 # thermostat-sensor
 
-This repository only contains code and instructions on how to setup the Raspberry Pi device to report temperature/humidity data along with manual alerts to the server. The server code where data is received and saved, notifications are sent, and the entire system configured via the admin portal, can be found on [thermostat repo](https://github.com/ankurp/thermostat)
+This repository only contains code and instructions on how to setup the Raspberry Pi device to report temperature/humidity data along with manual alerts to the server. The server code where data is received and saved, notifications are sent, and the entire system configured via the admin portal, can be found on [thermostat repo](https://github.com/ankurp/thermostat).
 
 ![Raspberry Pi 3](https://raw.githubusercontent.com/ankurp/thermostat-sensor/master/assets/splash.png)
 
@@ -40,9 +40,9 @@ You can also change the frequency of how often you want to send temperature read
 
 You can also change the pin numbers where you have the temperature sensor and button connected to in the `constants.py` file, if you connected them to different pins on Raspberry Pi than mentioned above.
 
-## MAC Address
+## Register Device to Website
 
-You will need to get the MAC address of the Wifi (`wlan0`) network interface so that you can register the device on the server via the Admin Portal otherwise the server will not accept readings from this sensor.
+You will need to get the MAC address of the Wifi (`wlan0`) network interface so that you can [register the device on the server via the Admin Portal](https://github.com/ankurp/thermostat/blob/master/README.md#addingregistering-device-on-the-website) otherwise the server will not accept readings from this sensor.
 
 ## Hostname
 Change hostname of Raspberry Pi if needed to help differentiate from one another.
