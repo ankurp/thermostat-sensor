@@ -32,9 +32,17 @@ You will need the following items
 1. `cd thermostat-sensor`
 1. `make`
 
-## Configure where to send Temperature Data 
+## Configure where to send Temperature Data, Reading Frequency and GPIO PIN numbers
 
-To send temperature data to your own server, you need to update the [report.py](https://github.com/ankurp/thermostat-sensor/blob/master/report.py) and [alert.py](https://github.com/ankurp/thermostat-sensor/blob/master/alert.py) files with your server's domain name.
+To send temperature data to your own server, you need to update the [constant.py](https://github.com/ankurp/thermostat-sensor/blob/master/constants.py#L1), `SERVER_DOMAIN` variable to point to domain with port number of your server.
+
+You can also change the frequency of how often you want to send temperature readings in seconds by changing the `INTERVAL` variable in `constants.py` (Setting it to 60 means a temperature reading will be sent every minute).
+
+You can also change the pin numbers where you have the temperature sensor and button connected to in the `constants.py` file, if you connected them to different pins on Raspberry Pi than mentioned above.
+
+## MAC Address
+
+You will need to get the MAC address of the Wifi (`wlan0`) network interface so that you can register the device on the server via the Admin Portal otherwise the server will not accept readings from this sensor.
 
 ## Hostname
 Change hostname of Raspberry Pi if needed to help differentiate from one another.
