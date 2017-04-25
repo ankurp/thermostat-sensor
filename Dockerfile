@@ -10,7 +10,7 @@ RUN /usr/bin/python setup.py install --force-pi
 WORKDIR /usr/src/app
 RUN git clone https://github.com/simonmonk/squid.git
 WORKDIR /usr/src/app/squid
-RUN /usr/bin/python setup.py install --force-pi
+RUN /usr/bin/python setup.py install
 
 WORKDIR /usr/src/app
 
