@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian
 
-RUN apt-get update && apt-get install build-essential python-dev
+RUN apt-get update && apt-get install -y build-essential python-dev git
 
 WORKDIR /usr/src/app
 RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
