@@ -1,4 +1,6 @@
-SERVER_DOMAIN = 'thermostat.encoredevlabs.com'
-BUTTON_PIN = 25
-TEMP_SENSOR_PIN = 4
-REPORT_INTERVAL = 60
+import os
+
+SERVER_DOMAIN = os.environ['SERVER_DOMAIN']
+BUTTON_PIN = os.environ['BUTTON_PIN']
+TEMP_SENSOR_PIN = os.environ['TEMP_SENSOR_PIN']
+REPORT_INTERVAL = os.environ['REPORT_INTERVAL']
