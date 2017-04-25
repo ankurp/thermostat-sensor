@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y build-essential python-dev git python-r
 WORKDIR /usr/src/app
 RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 WORKDIR /usr/src/app/Adafruit_Python_DHT
-RUN /usr/bin/python setup.py install --force-pi
+RUN /usr/bin/python setup.py install --force-pi2
 
 WORKDIR /usr/src/app
 RUN git clone https://github.com/simonmonk/squid.git
