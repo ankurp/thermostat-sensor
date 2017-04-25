@@ -16,5 +16,4 @@ WORKDIR /usr/src/app
 
 COPY *.py /usr/src/app/
 
-RUN /usr/bin/python /usr/src/app/reading.py
 CMD ["/usr/bin/python", "/usr/src/app/reading.py", "&", "/usr/bin/python", "/usr/src/app/alert.py", "&"]
