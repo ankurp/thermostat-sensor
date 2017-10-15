@@ -27,10 +27,22 @@ You will need the following items
 
 ## Software Install Instructions
 
-1. `cd /home/pi`
-1. `git clone https://github.com/ankurp/thermostat-sensor.git`
-1. `cd thermostat-sensor`
-1. `make`
+1. `curl -sSL https://get.docker.com | sh`
+1. `sudo usermod -aG docker pi`
+1. Add the following to the `/etc/rc.local` before the `exit 0` line
+```
+docker pull encoreptl/thermostat-sensor:latest
+docker run \
+	--privileged \
+	-e PYTHONUNBUFFERED=1 \
+	-e SERVER_DOMAIN=thermostat.encoredevlabs.com \
+	-e BUTTON_PIN=25 \
+	-e TEMP_SENSOR_PIN=4 \
+	-e REPORT_INTERVAL=60 \
+	-v /sys:/sys \
+	-d \
+	encoreptl/thermostat-sensor
+```
 
 ## Configure where to send Temperature Data, Reading Frequency and GPIO PIN numbers
 
