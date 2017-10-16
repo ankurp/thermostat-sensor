@@ -29,9 +29,9 @@ You will need the following items
 
 1. `curl -sSL https://get.docker.com | sh`
 1. `sudo usermod -aG docker pi`
+1. `docker pull encoreptl/thermostat-sensor:latest`
 1. Add the following to the `/etc/rc.local` before the `exit 0` line
 ```
-docker pull encoreptl/thermostat-sensor:latest
 docker run \
 	--privileged \
 	-e PYTHONUNBUFFERED=1 \
