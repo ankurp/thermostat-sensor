@@ -62,11 +62,12 @@ docker run \
 
 ## Configure where to send Temperature Data, Reading Frequency and GPIO PIN numbers
 
-To send temperature data to your own server, you need to update the [constants.py](https://github.com/ankurp/thermostat-sensor/blob/master/constants.py#L1), `SERVER_DOMAIN` variable to point to domain with port number of your server.
+You can configure by setting the following environment variables in the docker run command to your liking:
 
-You can also change the frequency of how often you want to send temperature readings in seconds by changing the `REPORT_INTERVAL` variable in `constants.py` (Setting it to 60 means a temperature reading will be sent every minute).
-
-You can also change the pin numbers where you have the temperature sensor and button connected to in the `constants.py` file, if you connected them to different pins on Raspberry Pi than mentioned above.
+* `SERVER_DOMAIN` - Setting this will post the reading to this domain and it can container port number as well
+* `REPORT_INTERVAL` - Frequency of how often you want to send temperature readings in seconds
+* `BUTTON_PIN` - Pin number where you have the button installed
+* `TEMP_SENSOR_PIN` - Pin number where you have the temperature sensor installed
 
 ## Register Device to Website
 
