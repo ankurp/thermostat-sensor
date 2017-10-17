@@ -40,30 +40,33 @@ network={
 
 ## Software Install Instructions
 
-SSH into the Raspberry Pi after powering it. Make sure you are in the same Wifi network to SSH. The default hostname will be `raspberrypi` so you can login via `ssh pi@raspberrypi.local`. The default password is `raspberry`
+Run the following commands in the Terminal. To remote log in you will need to SSH into the Raspberry Pi after powering it. Make sure you are in the same Wifi network to SSH. The default hostname will be `raspberrypi` so you can login via `ssh pi@raspberrypi.local`. The default password is `raspberry`.
 
 1. First change the password using `passwd`
 1. Then install docker using this command `curl -sSL https://get.docker.com | sh`
 1. Then make the pi user be able to executa commands as sudo user inside of the docker container via this command `sudo usermod -aG docker pi`
 1. Reboot raspberry pi using `sudo shutdown -r now`
-1. Then pull the docker container containing our code `docker pull encoreptl/thermostat-sensor:latest`
-1. Add the following to the `/etc/rc.local` before the `exit 0` line
-```
+1. Then ssh into the raspberry pi again and pull the docker container containing our code `docker pull encoreptl/thermostat-sensor:latest`
+1. Finally start the container using the command below and it will always run the container even when raspberry pi gets restarted
+
+```sh
 docker run \
-	--privileged \
-	-e PYTHONUNBUFFERED=1 \
-	-e SERVER_DOMAIN=thermostat.encoredevlabs.com \
-	-e BUTTON_PIN=25 \
-	-e TEMP_SENSOR_PIN=4 \
-	-e REPORT_INTERVAL=60 \
-	-v /sys:/sys \
-	-d \
-	encoreptl/thermostat-sensor
+  --privileged \
+  --restart=unless-stopped
+  -e PYTHONUNBUFFERED=1 \
+  -e SERVER_DOMAIN=thermostat.encoredevlabs.com \
+  -e BUTTON_PIN=25 \
+  -e TEMP_SENSOR_PIN=4 \
+  -e REPORT_INTERVAL=60 \
+  -v /sys:/sys \
+  -d \
+  encoreptl/thermostat-sensor
 ```
+
 
 ## Configure where to send Temperature Data, Reading Frequency and GPIO PIN numbers
 
-You can configure by setting the following environment variables in the docker run command to your liking:
+You can configure the container by setting the following environment variables in the docker run command to your liking:
 
 * `SERVER_DOMAIN` - Setting this will post the reading to this domain and it can container port number as well
 * `REPORT_INTERVAL` - Frequency of how often you want to send temperature readings in seconds
