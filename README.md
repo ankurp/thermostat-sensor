@@ -45,6 +45,7 @@ SSH into the Raspberry Pi after powering it. Make sure you are in the same Wifi 
 1. First change the password using `passwd`
 1. Then install docker using this command `curl -sSL https://get.docker.com | sh`
 1. Then make the pi user be able to executa commands as sudo user inside of the docker container via this command `sudo usermod -aG docker pi`
+1. Reboot raspberry pi using `sudo shutdown -r now`
 1. Then pull the docker container containing our code `docker pull encoreptl/thermostat-sensor:latest`
 1. Add the following to the `/etc/rc.local` before the `exit 0` line
 ```
