@@ -17,19 +17,35 @@ You will need the following items
 ## Raspberry Pi/Hardware Setup Instructions
 
 1. Install [Raspbian Image](https://www.raspberrypi.org/downloads/raspbian/) (Operating System to run on Raspberry Pi) from official Raspberry Pi website onto the Micro SD Card. You can find the installation instructions on how to install the Raspbian OS onto the Micro SD Card [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
-2. Once OS is installed insert the MicroSD Card in the Raspberry Pi
-3. Connect the Temperature/Humidity Sensor to the Raspberry Pi by Connecting the `Positive (+) end` via the jumper cable to the `3V Pin`, Connecting the `Negative (-) end` via the jumper cable to the `Ground (GND) Pin` and Connecting the `Data end` via the jumper cable to the `GPIO Pin 4` on the Raspberry Pi.
-4. Connect the Push Button to the Raspberry Pi by connecting any one of the jumper cables to `GPIO Pin 25` and the other to `Ground (GND)`
-5. Power up the Raspberry Pi and login via SSH or connect it to a monitor/keyboard/mouse and open the terminal and follow the software installation instructions below
+1. Once you have the OS on the MicroSD Card you should mount it add create an empty called `ssh` in the `/boot` volume of the MicroSD card image to remote login via ssh into the Raspberry Pi
+1. Also you can auto connect your Raspberry Pi to your Wifi by creating a `wpa_supplicant.conf` file in the `/boot` volume of the MicroSD card image. Enter the credentials to your Wifi in this file by copy pasting the contents below and replacing it with your Wifi name and password.
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+	ssid="WIFINAME"
+	psk="PASSWORD"
+	key_mgmt=WPA-PSK
+}
+```
+1. Once OS is installed and remote login and Wifi configured, insert the MicroSD Card in the Raspberry Pi.
+1. Connect the Temperature/Humidity Sensor to the Raspberry Pi by Connecting the `Positive (+) end` via the jumper cable to the `3V Pin`, Connecting the `Negative (-) end` via the jumper cable to the `Ground (GND) Pin` and Connecting the `Data end` via the jumper cable to the `GPIO Pin 4` on the Raspberry Pi.
+1. Connect the Push Button to the Raspberry Pi by connecting any one of the jumper cables to `GPIO Pin 25` and the other to `Ground (GND)`
+1. Power up the Raspberry Pi and login via SSH or connect it to a monitor/keyboard/mouse and open the terminal and follow the software installation instructions below
 
 ![Raspberry Pi 3 with Temperature Sensor and Button](https://raw.githubusercontent.com/ankurp/thermostat-sensor/master/assets/screenshot.jpeg)
 ![Showing Pin Connection](https://raw.githubusercontent.com/ankurp/thermostat-sensor/master/assets/pin.jpg)
 
 ## Software Install Instructions
 
-1. `curl -sSL https://get.docker.com | sh`
-1. `sudo usermod -aG docker pi`
-1. `docker pull encoreptl/thermostat-sensor:latest`
+SSH into the Raspberry Pi after powering it. Make sure you are in the same Wifi network to SSH. The default hostname will be `raspberrypi` so you can login via `ssh pi@raspberrypi.local`. The default password is `raspberry`
+
+1. First change the password using `passwd`
+1. Then install docker using this command `curl -sSL https://get.docker.com | sh`
+1. Then make the pi user be able to executa commands as sudo user inside of the docker container via this command `sudo usermod -aG docker pi`
+1. Then pull the docker container containing our code `docker pull encoreptl/thermostat-sensor:latest`
 1. Add the following to the `/etc/rc.local` before the `exit 0` line
 ```
 docker run \
