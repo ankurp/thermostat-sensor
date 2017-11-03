@@ -52,7 +52,7 @@ Run the following commands in the Terminal. To remote log in you will need to SS
 ```sh
 docker run \
   --privileged \
-  --restart=unless-stopped
+  --restart=unless-stopped \
   -e PYTHONUNBUFFERED=1 \
   -e SERVER_DOMAIN=thermostat.encoredevlabs.com \
   -e BUTTON_PIN=25 \
@@ -60,6 +60,7 @@ docker run \
   -e REPORT_INTERVAL=60 \
   -v /sys:/sys \
   -d \
+  --name thermostat \
   encoreptl/thermostat-sensor
 ```
 
